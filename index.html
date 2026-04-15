@@ -1,148 +1,617 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ayşegül</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ayşegül | iOS Developer</title>
 
-<style>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-body {
-  margin: 0;
-  font-family: Arial;
-  background: #f5efe6; /* BEJ */
-  color: #2b2b2b;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-/* HERO GRID */
-.hero {
-  height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  position: relative;
-}
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4ede4;
+      color: #2c2018;
+      overflow-x: hidden;
+    }
 
-/* LEFT - APPS */
-.left {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-.app-stack img {
-  width: 180px;
-  border-radius: 20px;
-  margin: 10px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-}
+    .page {
+      min-height: 100vh;
+      position: relative;
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.7), transparent 28%),
+        radial-gradient(circle at right center, rgba(139, 94, 60, 0.08), transparent 30%),
+        linear-gradient(180deg, #f5eee6 0%, #efe3d6 100%);
+    }
 
-/* RIGHT CONTENT */
-.right {
-  padding: 80px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
+    .hero {
+      max-width: 1400px;
+      margin: 0 auto;
+      min-height: 100vh;
+      padding: 42px 48px 0;
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
 
-/* AI BOX */
-.ai-box {
-  position: absolute;
-  top: 40px;
-  right: 40px;
-  background: #3e2f23;
-  color: white;
-  padding: 20px;
-  border-radius: 16px;
-  width: 220px;
-}
+    .left-side {
+      position: relative;
+      min-height: 760px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding-top: 50px;
+    }
 
-.ai-box h3 {
-  margin: 0 0 10px;
-}
+    .app-collage {
+      position: relative;
+      width: 100%;
+      max-width: 560px;
+      height: 580px;
+    }
 
-/* TEXT */
-h1 {
-  font-size: 48px;
-}
+    .phone-card {
+      position: absolute;
+      width: 220px;
+      height: 450px;
+      border-radius: 34px;
+      background: #3e2c22;
+      padding: 10px;
+      box-shadow: 0 18px 50px rgba(62, 44, 34, 0.22);
+      border: 1px solid rgba(62, 44, 34, 0.12);
+    }
 
-.subtitle {
-  color: #666;
-  margin-bottom: 20px;
-}
+    .phone-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 26px;
+      display: block;
+      background: #d7c4b4;
+    }
 
-.btn {
-  padding: 12px 20px;
-  background: #3e2f23;
-  color: white;
-  border-radius: 10px;
-  text-decoration: none;
-  width: fit-content;
-}
+    .phone-1 {
+      left: 10px;
+      top: 40px;
+      transform: rotate(-10deg);
+    }
 
-/* PROFILE */
-.profile {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-}
+    .phone-2 {
+      left: 180px;
+      top: 0;
+      transform: rotate(7deg);
+    }
 
-.profile img {
-  width: 260px;
-}
+    .phone-3 {
+      left: 110px;
+      top: 165px;
+      transform: rotate(-2deg);
+      width: 240px;
+      height: 470px;
+      z-index: 2;
+    }
 
-/* INSTAGRAM TAG */
-.insta {
-  margin-top: 20px;
-  font-size: 14px;
-  color: #888;
-}
+    .small-note {
+      position: absolute;
+      left: 0;
+      bottom: 18px;
+      background: rgba(255,255,255,0.55);
+      backdrop-filter: blur(8px);
+      padding: 14px 18px;
+      border-radius: 18px;
+      font-size: 14px;
+      color: #5a4537;
+      width: 210px;
+      box-shadow: 0 10px 30px rgba(62, 44, 34, 0.08);
+    }
 
-</style>
+    .right-side {
+      position: relative;
+      z-index: 2;
+      padding-right: 40px;
+      padding-bottom: 210px;
+    }
+
+    .top-label {
+      display: inline-block;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #7b5d49;
+      background: rgba(255,255,255,0.5);
+      border: 1px solid rgba(123, 93, 73, 0.12);
+      border-radius: 999px;
+      padding: 10px 14px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: 72px;
+      line-height: 0.96;
+      margin-bottom: 18px;
+      color: #2f2016;
+    }
+
+    .hero-subtitle {
+      font-size: 22px;
+      color: #6d5443;
+      margin-bottom: 18px;
+      font-weight: 600;
+    }
+
+    .hero-text {
+      max-width: 620px;
+      font-size: 18px;
+      line-height: 1.8;
+      color: #705849;
+      margin-bottom: 28px;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .badge {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(98, 69, 49, 0.08);
+      border: 1px solid rgba(98, 69, 49, 0.12);
+      color: #5b4030;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .button-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border-radius: 14px;
+      font-weight: 700;
+      transition: 0.25s ease;
+      font-size: 15px;
+    }
+
+    .btn-primary {
+      background: #4b3327;
+      color: #f6ede4;
+      box-shadow: 0 14px 30px rgba(75, 51, 39, 0.18);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      background: #3c281f;
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(75, 51, 39, 0.18);
+      color: #4b3327;
+      background: rgba(255,255,255,0.45);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+      background: rgba(255,255,255,0.8);
+    }
+
+    .creator-line {
+      font-size: 15px;
+      color: #7c6251;
+      font-weight: 600;
+    }
+
+    .creator-line span {
+      color: #3f2c22;
+    }
+
+    .ai-panel {
+      position: absolute;
+      top: 30px;
+      right: 10px;
+      width: 290px;
+      background: #4a3226;
+      color: #f7ede4;
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 18px 45px rgba(74, 50, 38, 0.22);
+      z-index: 3;
+    }
+
+    .ai-panel .eyebrow {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #ddc7b8;
+      margin-bottom: 10px;
+    }
+
+    .ai-panel h3 {
+      font-size: 28px;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .ai-panel p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: #ead9ce;
+      margin-bottom: 16px;
+    }
+
+    .ai-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .ai-tag {
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.09);
+      font-size: 12px;
+      color: #fff4ec;
+    }
+
+    .profile-cutout {
+      position: absolute;
+      bottom: 0;
+      left: 53%;
+      transform: translateX(-50%);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .profile-cutout img {
+      width: 420px;
+      max-width: 34vw;
+      min-width: 280px;
+      display: block;
+      object-fit: cover;
+      filter: drop-shadow(0 16px 24px rgba(64, 42, 29, 0.18));
+      border-radius: 24px 24px 0 0;
+    }
+
+    .bottom-strip {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 48px 70px;
+      position: relative;
+      z-index: 2;
+      margin-top: -110px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr 0.9fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .info-card {
+      background: rgba(255,255,255,0.52);
+      border: 1px solid rgba(75, 51, 39, 0.1);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 14px 28px rgba(93, 68, 49, 0.06);
+    }
+
+    .info-card.dark {
+      background: #4b3327;
+      color: #f7ede4;
+    }
+
+    .info-card h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .info-card p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: inherit;
+      opacity: 0.9;
+    }
+
+    .section-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .mini-link {
+      font-size: 13px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(75, 51, 39, 0.08);
+      color: #4b3327;
+      border: 1px solid rgba(75, 51, 39, 0.1);
+    }
+
+    .info-card.dark .mini-link {
+      background: rgba(255,255,255,0.08);
+      color: #f7ede4;
+      border-color: rgba(255,255,255,0.09);
+    }
+
+    .footer {
+      padding: 0 48px 40px;
+      max-width: 1400px;
+      margin: 0 auto;
+      color: #8d7261;
+      font-size: 14px;
+    }
+
+    @media (max-width: 1180px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 36px;
+      }
+
+      .left-side {
+        min-height: 560px;
+        order: 2;
+      }
+
+      .right-side {
+        order: 1;
+        padding-right: 0;
+        padding-bottom: 100px;
+      }
+
+      .ai-panel {
+        position: relative;
+        top: auto;
+        right: auto;
+        margin-bottom: 24px;
+        width: 100%;
+        max-width: 420px;
+      }
+
+      .profile-cutout {
+        position: relative;
+        left: auto;
+        transform: none;
+        display: flex;
+        justify-content: center;
+        margin-top: -40px;
+      }
+
+      .profile-cutout img {
+        max-width: 280px;
+        width: 60vw;
+      }
+
+      .bottom-strip {
+        margin-top: 0;
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 54px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero,
+      .bottom-strip,
+      .footer {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .left-side {
+        min-height: 460px;
+      }
+
+      .app-collage {
+        height: 420px;
+        max-width: 360px;
+      }
+
+      .phone-card {
+        width: 145px;
+        height: 300px;
+        border-radius: 24px;
+      }
+
+      .phone-card img {
+        border-radius: 18px;
+      }
+
+      .phone-1 {
+        left: 0;
+        top: 35px;
+      }
+
+      .phone-2 {
+        left: 120px;
+        top: 0;
+      }
+
+      .phone-3 {
+        left: 70px;
+        top: 120px;
+        width: 165px;
+        height: 320px;
+      }
+
+      .small-note {
+        width: 180px;
+        font-size: 12px;
+        padding: 10px 12px;
+      }
+
+      h1 {
+        font-size: 42px;
+      }
+
+      .hero-subtitle {
+        font-size: 18px;
+      }
+
+      .hero-text {
+        font-size: 15px;
+      }
+
+      .ai-panel h3 {
+        font-size: 22px;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <div class="page">
+    <section class="hero">
 
-<div class="hero">
+      <div class="left-side">
+        <div class="app-collage">
+          <!-- UYGULAMA EKRANLARIN BURAYA GELECEK -->
+          <div class="phone-card phone-1">
+            <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80" alt="App ekranı 1" />
+          </div>
 
-  <!-- SOL: APP GÖRSELLERİ -->
-  <div class="left">
-    <div class="app-stack">
-      <img src="https://via.placeholder.com/200x400" />
-      <img src="https://via.placeholder.com/200x400" />
-    </div>
+          <div class="phone-card phone-2">
+            <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=800&q=80" alt="App ekranı 2" />
+          </div>
+
+          <div class="phone-card phone-3">
+            <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=800&q=80" alt="App ekranı 3" />
+          </div>
+
+          <div class="small-note">
+            iOS projelerimi, arayüz denemelerimi ve ürün fikirlerimi burada sergiliyorum.
+          </div>
+        </div>
+      </div>
+
+      <div class="right-side">
+        <div class="ai-panel">
+          <div class="eyebrow">AI / ML Projects</div>
+          <h3>Makine öğrenmesi tarafında da üretim yapıyorum.</h3>
+          <p>
+            Sağlık AI, bilgisayarlı görü ve veri odaklı projeler geliştiriyorum.
+            iOS ile yapay zekayı aynı profilde birleştiriyorum.
+          </p>
+          <div class="ai-tags">
+            <span class="ai-tag">Machine Learning</span>
+            <span class="ai-tag">Computer Vision</span>
+            <span class="ai-tag">Health AI</span>
+            <span class="ai-tag">Data Projects</span>
+          </div>
+        </div>
+
+        <div class="top-label">iOS Developer • Tech Creator • AI Builder</div>
+
+        <h1>Ayşegül</h1>
+
+        <p class="hero-subtitle">
+          Swift ile uygulama geliştiriyorum, AI projeleri üretiyorum, teknolojiyi içerik haline getiriyorum.
+        </p>
+
+        <p class="hero-text">
+          Sadece kod yazmakla yetinmiyorum. Geliştirdiğim uygulamaları, öğrendiklerimi ve
+          üretim sürecimi estetik ve anlaşılır bir şekilde paylaşmayı seviyorum.
+          Bu sayfa; iOS, yapay zeka ve teknoloji içerik üreticiliğinin birleştiği kişisel alanım.
+        </p>
+
+        <div class="badge-row">
+          <span class="badge">Swift & iOS</span>
+          <span class="badge">AI / ML Projects</span>
+          <span class="badge">Instagram Tech Influencer</span>
+        </div>
+
+        <div class="button-row">
+          <a href="#projects" class="btn btn-primary">Projeleri Keşfet</a>
+          <a href="#about" class="btn btn-secondary">Ben Kimim?</a>
+        </div>
+
+        <p class="creator-line">
+          <span>@okay.labs</span> ile teknoloji, üretim ve tasarımı bir araya getiriyorum.
+        </p>
+      </div>
+
+      <div class="profile-cutout">
+        <img src="https://avatars.githubusercontent.com/u/257825242?v=4" alt="Ayşegül profil fotoğrafı" />
+      </div>
+    </section>
+
+    <section class="bottom-strip">
+      <div class="info-grid" id="projects">
+        <div class="info-card" id="about">
+          <h3>Hakkımda</h3>
+          <p>
+            Bilgisayar mühendisliği alanında kendimi özellikle iOS geliştirme, Swift ve yapay zeka
+            projeleri üzerinden geliştiriyorum. Teknik üretmenin yanında, bunları güçlü bir anlatımla
+            sunmaya ve sosyal medyada teknoloji odaklı içeriklere dönüştürmeye önem veriyorum.
+          </p>
+          <div class="section-links">
+            <span class="mini-link">Kişisel Marka</span>
+            <span class="mini-link">UI / UX Duyarlılığı</span>
+            <span class="mini-link">Build in Public</span>
+          </div>
+        </div>
+
+        <div class="info-card dark">
+          <h3>iOS Uygulamaları</h3>
+          <p>
+            Swift ile geliştirdiğim mini uygulamalar, arayüz denemeleri ve ürün fikirleri bu tarafta.
+            Buraya yakında gerçek uygulama ekran görüntülerimi ekleyeceğim.
+          </p>
+          <div class="section-links">
+            <span class="mini-link">SwiftUI</span>
+            <span class="mini-link">UIKit</span>
+            <span class="mini-link">App Concepts</span>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <h3>AI / ML Çalışmaları</h3>
+          <p>
+            Sağlık AI, görsel sınıflandırma, veri işleme ve model denemeleri yaptığım projeleri ayrı
+            bir üretim alanı olarak konumluyorum.
+          </p>
+          <div class="section-links">
+            <span class="mini-link">PathoPredict</span>
+            <span class="mini-link">HAM10000</span>
+            <span class="mini-link">Health Tech</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      © 2026 Ayşegül • Built with GitHub Pages
+    </footer>
   </div>
-
-  <!-- SAĞ: METİN -->
-  <div class="right">
-    <h1>Ayşegül</h1>
-    <p class="subtitle">iOS Developer • AI Projects</p>
-
-    <p>
-      Swift ile mobil uygulamalar geliştiriyorum.
-      Aynı zamanda yapay zeka projeleri üzerinde çalışıyorum.
-    </p>
-
-    <a href="#" class="btn">Projeleri Gör</a>
-
-    <div class="insta">
-      📱 Tech Content Creator • Instagram
-    </div>
-  </div>
-
-  <!-- AI BOX -->
-  <div class="ai-box">
-    <h3>AI Projects</h3>
-    <p>Machine Learning</p>
-    <p>Computer Vision</p>
-  </div>
-
-  <!-- FOTO -->
-  <div class="profile">
-    <img src="https://avatars.githubusercontent.com/u/257825242?v=4" />
-  </div>
-
-</div>
-
 </body>
 </html>
