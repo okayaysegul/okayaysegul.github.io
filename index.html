@@ -1,301 +1,148 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ayşegül | iOS Developer</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ayşegül</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<style>
 
-    html {
-      scroll-behavior: smooth;
-    }
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #f5efe6; /* BEJ */
+  color: #2b2b2b;
+}
 
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(180deg, #081225 0%, #0f172a 100%);
-      color: white;
-      line-height: 1.6;
-    }
+/* HERO GRID */
+.hero {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+}
 
-    a {
-      text-decoration: none;
-    }
+/* LEFT - APPS */
+.left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    .section {
-      padding: 80px 20px;
-    }
+.app-stack img {
+  width: 180px;
+  border-radius: 20px;
+  margin: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
 
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
+/* RIGHT CONTENT */
+.right {
+  padding: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 40px 20px;
-    }
+/* AI BOX */
+.ai-box {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  background: #3e2f23;
+  color: white;
+  padding: 20px;
+  border-radius: 16px;
+  width: 220px;
+}
 
-    .hero-content {
-      max-width: 700px;
-    }
+.ai-box h3 {
+  margin: 0 0 10px;
+}
 
-    .profile-img {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid #22c55e;
-      box-shadow: 0 10px 30px rgba(34, 197, 94, 0.25);
-      margin-bottom: 24px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+/* TEXT */
+h1 {
+  font-size: 48px;
+}
 
-    .profile-img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 14px 36px rgba(34, 197, 94, 0.35);
-    }
+.subtitle {
+  color: #666;
+  margin-bottom: 20px;
+}
 
-    h1 {
-      font-size: 52px;
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
+.btn {
+  padding: 12px 20px;
+  background: #3e2f23;
+  color: white;
+  border-radius: 10px;
+  text-decoration: none;
+  width: fit-content;
+}
 
-    .hero-subtitle {
-      font-size: 22px;
-      color: #cbd5e1;
-      margin-bottom: 14px;
-    }
+/* PROFILE */
+.profile {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
 
-    .hero-text {
-      font-size: 17px;
-      color: #94a3b8;
-      max-width: 600px;
-      margin: 0 auto 28px;
-    }
+.profile img {
+  width: 260px;
+}
 
-    .btn-group {
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
+/* INSTAGRAM TAG */
+.insta {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #888;
+}
 
-    .btn {
-      display: inline-block;
-      padding: 14px 24px;
-      border-radius: 10px;
-      font-weight: bold;
-      transition: 0.3s ease;
-    }
-
-    .btn-primary {
-      background: #22c55e;
-      color: #0f172a;
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      background: #4ade80;
-    }
-
-    .btn-secondary {
-      border: 1px solid #334155;
-      color: white;
-      background: rgba(255, 255, 255, 0.03);
-    }
-
-    .btn-secondary:hover {
-      transform: translateY(-2px);
-      border-color: #22c55e;
-      color: #22c55e;
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: 34px;
-      margin-bottom: 18px;
-    }
-
-    .section-text {
-      text-align: center;
-      color: #94a3b8;
-      max-width: 760px;
-      margin: 0 auto;
-      font-size: 17px;
-    }
-
-    .about {
-      background: rgba(255, 255, 255, 0.02);
-      border-top: 1px solid rgba(255, 255, 255, 0.04);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-    }
-
-    .projects-grid {
-      margin-top: 40px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
-    }
-
-    .card {
-      background: #111c31;
-      border: 1px solid #1e293b;
-      border-radius: 18px;
-      padding: 24px;
-      transition: transform 0.3s ease, border-color 0.3s ease;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
-      border-color: #22c55e;
-    }
-
-    .card h3 {
-      font-size: 22px;
-      margin-bottom: 10px;
-    }
-
-    .card p {
-      color: #94a3b8;
-      font-size: 15px;
-    }
-
-    .tag {
-      display: inline-block;
-      margin-top: 16px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      font-size: 13px;
-      background: rgba(34, 197, 94, 0.12);
-      color: #4ade80;
-      border: 1px solid rgba(34, 197, 94, 0.2);
-    }
-
-    .footer {
-      text-align: center;
-      padding: 40px 20px 60px;
-      color: #64748b;
-      font-size: 14px;
-    }
-
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 38px;
-      }
-
-      .hero-subtitle {
-        font-size: 18px;
-      }
-
-      .hero-text {
-        font-size: 15px;
-      }
-
-      .section-title {
-        font-size: 28px;
-      }
-
-      .profile-img {
-        width: 130px;
-        height: 130px;
-      }
-    }
-  </style>
+</style>
 </head>
 
 <body>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-content">
-      <img
-        src="https://avatars.githubusercontent.com/u/257825242?v=4"
-        alt="Ayşegül profil fotoğrafı"
-        class="profile-img"
-      />
+<div class="hero">
 
-      <h1>Merhaba, ben Ayşegül 👋</h1>
-      <p class="hero-subtitle">iOS Developer • Swift • AI Projects</p>
-      <p class="hero-text">
-        Swift ile mobil uygulamalar geliştiriyor, yapay zeka projeleri üzerinde çalışıyor
-        ve öğrendiklerimi içerik üreterek paylaşmayı seviyorum.
-      </p>
-
-      <div class="btn-group">
-        <a href="#projects" class="btn btn-primary">Projelerimi Gör</a>
-        <a href="#about" class="btn btn-secondary">Hakkımda</a>
-      </div>
+  <!-- SOL: APP GÖRSELLERİ -->
+  <div class="left">
+    <div class="app-stack">
+      <img src="https://via.placeholder.com/200x400" />
+      <img src="https://via.placeholder.com/200x400" />
     </div>
-  </section>
+  </div>
 
-  <!-- ABOUT -->
-  <section id="about" class="section about">
-    <div class="container">
-      <h2 class="section-title">Hakkımda</h2>
-      <p class="section-text">
-        Bilgisayar mühendisliği alanında kendimi özellikle iOS geliştirme, Swift ve yapay zeka
-        projeleri üzerinden geliştiriyorum. Teknik üretmenin yanında, öğrendiklerimi sade ve
-        dikkat çekici içeriklere dönüştürmeyi seviyorum. Amacım hem güçlü projeler geliştirmek
-        hem de bunu iyi sunabilen bir geliştirici olmak.
-      </p>
+  <!-- SAĞ: METİN -->
+  <div class="right">
+    <h1>Ayşegül</h1>
+    <p class="subtitle">iOS Developer • AI Projects</p>
+
+    <p>
+      Swift ile mobil uygulamalar geliştiriyorum.
+      Aynı zamanda yapay zeka projeleri üzerinde çalışıyorum.
+    </p>
+
+    <a href="#" class="btn">Projeleri Gör</a>
+
+    <div class="insta">
+      📱 Tech Content Creator • Instagram
     </div>
-  </section>
+  </div>
 
-  <!-- PROJECTS -->
-  <section id="projects" class="section">
-    <div class="container">
-      <h2 class="section-title">Projelerim</h2>
-      <p class="section-text">
-        Burada üzerinde çalıştığım teknik projelerden bazılarını görebilirsin.
-      </p>
+  <!-- AI BOX -->
+  <div class="ai-box">
+    <h3>AI Projects</h3>
+    <p>Machine Learning</p>
+    <p>Computer Vision</p>
+  </div>
 
-      <div class="projects-grid">
-        <div class="card">
-          <h3>PathoPredict</h3>
-          <p>
-            Genetik varyantların patojenitesini tahmin etmeye odaklanan, sağlık alanında
-            yapay zeka temelli bir proje.
-          </p>
-          <span class="tag">AI • Health</span>
-        </div>
+  <!-- FOTO -->
+  <div class="profile">
+    <img src="https://avatars.githubusercontent.com/u/257825242?v=4" />
+  </div>
 
-        <div class="card">
-          <h3>HAM10000 Project</h3>
-          <p>
-            Deri lezyon sınıflandırması üzerine çalıştığım, veri artırma ve model performansı
-            odaklı bir bilgisayarlı görü projesi.
-          </p>
-          <span class="tag">Computer Vision</span>
-        </div>
-
-        <div class="card">
-          <h3>iOS Mini Apps</h3>
-          <p>
-            Swift kullanarak geliştirdiğim küçük uygulamalar, arayüz denemeleri ve iOS öğrenme
-            sürecimde oluşturduğum projeler.
-          </p>
-          <span class="tag">Swift • iOS</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    © 2026 Ayşegül • Built with GitHub Pages
-  </footer>
+</div>
 
 </body>
 </html>
